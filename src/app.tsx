@@ -12,8 +12,8 @@ const PageHome = () => {
 
 const SectionFeed = () => {
   return (
-    <Section className="grid grid-cols-4 gap-2">
-      <BlockFeed className="col-span-3" />
+    <Section className={cn(`grid gap-2`, `md:grid-cols-4`)}>
+      <BlockFeed className="col-span-1 order-1 md:col-span-3 md:-order-1" />
       <BlockActions />
     </Section>
   )
@@ -21,7 +21,7 @@ const SectionFeed = () => {
 
 const BlockFeed: React.FC<{className?: string}> = ({className}) => {
   return (
-    <div className={`grid grid-cols-3 gap-2 ${className}`}>
+    <div className={cn(`grid grid-cols-1 gap-2`, `md:grid-cols-3`, className)}>
       {Array.from({length: 10}, (_, key) => (
         <Card key={key} />
       ))}
@@ -48,4 +48,4 @@ const Page: React.FC<{children: React.ReactNode}> = ({children}) => (
 const Section: React.FC<{className?: string; children: React.ReactNode}> = ({
   className,
   children,
-}) => <div className={`px-4 ${className}`}>{children}</div>
+}) => <div className={cn(`px-4`, className)}>{children}</div>
