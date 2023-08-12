@@ -13,7 +13,7 @@ const PageHome = () => {
 const SectionFeed = () => {
   return (
     <Section className={cn(`grid gap-2`, `md:grid-cols-4`)}>
-      <BlockFeed className="col-span-1 order-1 md:col-span-3 md:-order-1" />
+      <BlockFeed className="order-1 md:col-span-3 md:-order-1" />
       <BlockActions />
     </Section>
   )
