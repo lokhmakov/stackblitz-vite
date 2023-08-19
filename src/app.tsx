@@ -4,10 +4,29 @@ export const App = () => <PageHome />
 
 const PageHome = () => {
   return (
-    <Page>
-      <SectionFeed />
-    </Page>
+    <Layout>
+      <Page>
+        <SectionFeed />
+      </Page>
+    </Layout>
   )
+}
+
+const Layout: React.FC<{children: React.ReactNode}> = ({children}) => {
+  return (
+    <main className="max-vw flex min-h-screen flex-col items-center overflow-hidden bg-green-100">
+      <div className="bg-purple-200 w-full flex justify-center">
+        <div className="max-w-[600px] bg-red-100">
+          <SectionHeader />
+        </div>
+      </div>
+      <div className="max-w-[600px] bg-blue-100">{children}</div>
+    </main>
+  )
+}
+
+const SectionHeader = () => {
+  return <Section>Foo</Section>
 }
 
 const SectionFeed = () => {
@@ -42,7 +61,7 @@ const BlockActions: React.FC<{className?: string}> = ({className}) => {
 }
 
 const Page: React.FC<{children: React.ReactNode}> = ({children}) => (
-  <div className="w-100vw min-h-100vh bg-green-100 p-4">{children}</div>
+  <>{children}</>
 )
 
 const Section: React.FC<{className?: string; children: React.ReactNode}> = ({
